@@ -7,8 +7,7 @@ abstract class ConNguoi {
     private String diaChi;
     private String soDienThoai;
 
-    public void nhapThongTin() {
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
         System.out.print("Nhap ho va ten: ");
         hoTen = sc.nextLine();
         System.out.print("Nhap Ma Dinh Danh: ");
@@ -36,20 +35,19 @@ class QuanLy extends ConNguoi {
     private String khuLamViec;
 
     @Override
-    public void nhapThongTin() {
-        super.nhapThongTin();
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
+        super.nhapThongTin(sc);
         System.out.print("Nhap ID quan ly: ");
         idQuanLy = sc.nextLine();
         System.out.print("Nhap luong: ");
-        luong = Double.parseDouble(sc.nextLine());
+        luong = sc.nextDouble(); sc.nextLine();
         System.out.print("Nhap khu lam viec: ");
         khuLamViec = sc.nextLine();
     }
 
     @Override
     public void hienThiThongTin() {
-        System.out.println("=== Thong tin Quan Ly ===");
+        System.out.println("\n=== Thong tin Quan Ly ===");
         super.hienThiThongTin();
         System.out.println("ID Quan Ly: " + idQuanLy);
         System.out.println("Luong: " + luong);
@@ -64,13 +62,12 @@ class NhanVien extends ConNguoi {
     private String ca;
 
     @Override
-    public void nhapThongTin() {
-        super.nhapThongTin();
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
+        super.nhapThongTin(sc);
         System.out.print("Nhap ID Nhan Vien: ");
         idNhanVien = sc.nextLine();
         System.out.print("Nhap luong: ");
-        luong = Double.parseDouble(sc.nextLine());
+        luong = sc.nextDouble(); sc.nextLine();
         System.out.print("Nhap chuc vu: ");
         chucVu = sc.nextLine();
         System.out.print("Nhap ca lam viec: ");
@@ -79,7 +76,7 @@ class NhanVien extends ConNguoi {
 
     @Override
     public void hienThiThongTin() {
-        System.out.println("=== Thong tin Nhan Vien ===");
+        System.out.println("\n=== Thong tin Nhan Vien ===");
         super.hienThiThongTin();
         System.out.println("ID Nhan Vien: " + idNhanVien);
         System.out.println("Luong: " + luong);
@@ -93,14 +90,14 @@ class ThongKeNhanVien {
     private int soLuongHoaDon;
     private double tongDoanhThu;
 
-    public void nhapThongTin() {
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
         System.out.print("Nhap ID nhan vien: ");
         idNhanVien = sc.nextLine();
         System.out.print("Nhap so luong hoa don: ");
         soLuongHoaDon = sc.nextInt();
         System.out.print("Nhap tong doanh thu: ");
         tongDoanhThu = sc.nextDouble();
+        sc.nextLine();
     }
 
     public void hienThiThongKe() {
@@ -121,20 +118,17 @@ class ThuongNhanVien {
             System.out.println("Khong co du lieu thong ke!");
             return;
         }
-
         ThongKeNhanVien max = ds[0];
         for (ThongKeNhanVien nv : ds) {
             if (nv.getTongDoanhThu() > max.getTongDoanhThu()) {
                 max = nv;
             }
         }
-
         this.idNhanVien = max.getIdNhanVien();
         this.soTienThuong = max.getTongDoanhThu() * 0.2;
     }
 
-    public void nhapNgayThuong() {
-        Scanner sc = new Scanner(System.in);
+    public void nhapNgayThuong(Scanner sc) {
         System.out.print("Nhap ngay thuong (dd/MM/yyyy): ");
         ngayThuong = sc.nextLine();
     }
@@ -144,7 +138,7 @@ class ThuongNhanVien {
             System.out.println("Chua co nhan vien duoc thuong!");
             return;
         }
-        System.out.println("Nhan vien duoc thuong:");
+        System.out.println("\n=== Nhan vien duoc thuong ===");
         System.out.println("ID: " + idNhanVien);
         System.out.println("So tien thuong: " + soTienThuong);
         System.out.println("Ngay thuong: " + ngayThuong);
@@ -156,8 +150,7 @@ class KhachHang {
     protected String hoTen;
     protected String soDienThoai;
 
-    public void nhapThongTin() {
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
         System.out.print("Nhap ID khach hang: ");
         idKhachHang = sc.nextLine();
         System.out.print("Nhap ho ten: ");
@@ -178,18 +171,18 @@ class KhachHangThuong extends KhachHang {
     private double tongChiTieu;
 
     @Override
-    public void nhapThongTin() {
-        super.nhapThongTin();
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
+        super.nhapThongTin(sc);
         System.out.print("Nhap so lan mua hang: ");
         soLanMuaHang = sc.nextInt();
         System.out.print("Nhap tong chi tieu (VND): ");
         tongChiTieu = sc.nextDouble();
+        sc.nextLine();
     }
 
     @Override
     public void hienThiThongTin() {
-        System.out.println("=== Khach Hang Thuong ===");
+        System.out.println("\n=== Khach Hang Thuong ===");
         super.hienThiThongTin();
         System.out.println("So lan mua hang: " + soLanMuaHang);
         System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
@@ -202,9 +195,8 @@ class KhachHangVIP extends KhachHang {
     private String hangThe;
 
     @Override
-    public void nhapThongTin() {
-        super.nhapThongTin();
-        Scanner sc = new Scanner(System.in);
+    public void nhapThongTin(Scanner sc) {
+        super.nhapThongTin(sc);
         System.out.print("Nhap tong chi tieu (VND): ");
         tongChiTieu = sc.nextDouble();
         System.out.print("Nhap diem tich luy: ");
@@ -216,7 +208,7 @@ class KhachHangVIP extends KhachHang {
 
     @Override
     public void hienThiThongTin() {
-        System.out.println("=== Khach Hang VIP ===");
+        System.out.println("\n=== Khach Hang VIP ===");
         super.hienThiThongTin();
         System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
         System.out.println("Diem tich luy: " + diemTichLuy);
@@ -224,7 +216,7 @@ class KhachHangVIP extends KhachHang {
     }
 }
 
-public class QuanLyHeThong {
+public class Oop {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ThongKeNhanVien[] dsThongKe = null;
@@ -251,22 +243,22 @@ public class QuanLyHeThong {
             switch (chon) {
                 case 1 -> {
                     nv = new NhanVien();
-                    nv.nhapThongTin();
+                    nv.nhapThongTin(sc);
                     nv.hienThiThongTin();
                 }
                 case 2 -> {
                     ql = new QuanLy();
-                    ql.nhapThongTin();
+                    ql.nhapThongTin(sc);
                     ql.hienThiThongTin();
                 }
                 case 3 -> {
                     System.out.print("Nhap so luong thong ke: ");
-                    int n = sc.nextInt();
+                    int n = sc.nextInt(); sc.nextLine();
                     dsThongKe = new ThongKeNhanVien[n];
                     for (int i = 0; i < n; i++) {
                         System.out.println("\nThong ke thu " + (i + 1) + ":");
                         dsThongKe[i] = new ThongKeNhanVien();
-                        dsThongKe[i].nhapThongTin();
+                        dsThongKe[i].nhapThongTin(sc);
                     }
                     for (ThongKeNhanVien tk : dsThongKe) tk.hienThiThongKe();
                 }
@@ -274,18 +266,18 @@ public class QuanLyHeThong {
                     if (dsThongKe == null) System.out.println("Chua co du lieu thong ke!");
                     else {
                         thuong.timNhanVienThuong(dsThongKe);
-                        thuong.nhapNgayThuong();
+                        thuong.nhapNgayThuong(sc);
                         thuong.hienThiThuong();
                     }
                 }
                 case 5 -> {
                     khThuong = new KhachHangThuong();
-                    khThuong.nhapThongTin();
+                    khThuong.nhapThongTin(sc);
                     khThuong.hienThiThongTin();
                 }
                 case 6 -> {
                     khVIP = new KhachHangVIP();
-                    khVIP.nhapThongTin();
+                    khVIP.nhapThongTin(sc);
                     khVIP.hienThiThongTin();
                 }
                 case 0 -> System.out.println("Tam biet!");
