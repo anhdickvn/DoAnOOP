@@ -7,6 +7,8 @@ abstract class ConNguoi {
     private String diaChi;
     private String soDienThoai;
 
+      public ConNguoi() {}
+
     public ConNguoi(String hoTen, String maDinhDanh, String ngaySinh, String diaChi, String soDienThoai) {
         this.hoTen = hoTen;
         this.maDinhDanh = maDinhDanh;
@@ -59,7 +61,7 @@ class QuanLy extends ConNguoi {
     private double luong;
     private String khuLamViec;
 
-    public QuanLy() {}
+        public QuanLy() {}
 
     public QuanLy(String hoTen, String maDinhDanh, String ngaySinh, String diaChi, String soDienThoai,
                   String idQuanLy, double luong, String khuLamViec) {
@@ -106,6 +108,8 @@ class NhanVien extends ConNguoi {
     private double luong;
     private String chucVu;
     private String ca;
+
+    public NhanVien() {}
 
     public NhanVien(String hoTen, String maDinhDanh, String ngaySinh, String diaChi, String soDienThoai,
                     String idNhanVien, double luong, String chucVu, String ca) {
@@ -219,6 +223,8 @@ class ThuongNhanVien {
 
     private double soTienThuong;
     private String ngayThuong;
+
+    public ThuongNhanVien() {}
 
     public void tinhThuong(ThongKeNhanVien tk) {
         if (tk == null || tk.getDsNhanVien() == null || tk.getDsNhanVien().length == 0) {
@@ -334,63 +340,11 @@ public class QuanLyHeThong {
         KhachHangThuong khThuong = null;
         KhachHangVIP khVIP = null;
 
-        int chon;
-        do {
-            System.out.println("\n===== MENU CHINH =====");
-            System.out.println("1. Nhap & hien thi nhan vien");
-            System.out.println("2. Nhap & hien thi quan ly");
-            System.out.println("3. Nhap danh sach thong ke nhan vien");
-            System.out.println("4. Tim nhan vien duoc thuong");
-            System.out.println("5. Nhap & hien thi khach hang thuong");
-            System.out.println("6. Nhap & hien thi khach hang VIP");
-            System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            chon = sc.nextInt();
-            sc.nextLine();
+    }
+}
 
-            switch (chon) {
-                case 1 -> {
-                    nv = new NhanVien();
-                    nv.nhapThongTin();
-                    nv.hienThiThongTin();
-                }
-                case 2 -> {
-                    ql = new QuanLy();
-                    ql.nhapThongTin();
-                    ql.hienThiThongTin();
-                }
-                case 3 -> {
-                    System.out.print("Nhap so luong thong ke: ");
-                    int n = sc.nextInt();
-                    dsThongKe = new ThongKeNhanVien[n];
-                    for (int i = 0; i < n; i++) {
-                        System.out.println("\nThong ke thu " + (i + 1) + ":");
-                        dsThongKe[i] = new ThongKeNhanVien();
-                        dsThongKe[i].nhapThongTin();
-                    }
-                    for (ThongKeNhanVien tk : dsThongKe) tk.hienThiThongKe();
-                }
-                case 4 -> {
-                    if (dsThongKe == null) System.out.println("Chua co du lieu thong ke!");
-                    else {
-                        thuong.timNhanVienThuong(dsThongKe);
-                        thuong.nhapNgayThuong();
-                        thuong.hienThiThuong();
-                    }
-                }
-                case 5 -> {
-                    khThuong = new KhachHangThuong();
-                    khThuong.nhapThongTin();
-                    khThuong.hienThiThongTin();
-                }
-                case 6 -> {
-                    khVIP = new KhachHangVIP();
-                    khVIP.nhapThongTin();
-                    khVIP.hienThiThongTin();
-                }
-                case 0 -> System.out.println("Tam biet!");
-                default -> System.out.println("Lua chon khong hop le!");
-            }
-        } while (chon != 0);
+    public void hienThi() {
+        System.out.println("So Tien Thuong: " +soTienThuong);
+        System.out.println("Ngay thuong: " +ngayThuong)
     }
 }
