@@ -94,11 +94,11 @@ abstract class CongTyABC {
 		this.TenCty = TenCty;
 	}
 
-	public HoaDon getDsHoaDon() {
+	public HoaDon[] getDanhSachHoaDon() {
 		return dsHoaDon;
 	}
 
-	public void setDsHoaDon(HoaDon dsHoaDon) {
+	public void setDanhSachHoaDon(HoaDon[] dsHoaDon) {
 		this.dsHoaDon = dsHoaDon;
 	}
 
@@ -109,7 +109,7 @@ public void NhapDS() {
 	System.out.println("Hãy nhập số lượng hóa đơn: ");
 	int soLuong = sc.nextInt();
 	sc.nextLine();
-	HoaDon = new HoaDon[n];
+	dsHoaDon = new HoaDon[n];
 	for (int i = 0; i < soLuong; i++) {
 		System.out.println("Hãy nhập hóa đơn thứ : " + (i+1) + " : ");
 		HoaDon[i] = new CongTyABC();
