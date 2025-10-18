@@ -1,16 +1,13 @@
 import java.util.Scanner;
+class KhachHan extends ConNguoi {
+    private String idKhachHang;
 
-class KhachHang extends ConNguoi {
-    private  String idKhachHang;
-    private  String hoTen;
-    private  String soDienThoai;
+    public KhachHang() {
+        this.idKhachHang = "";
+    }
 
-    public KhachHang() {}
-
-    public KhachHang(String idKhachHang, String hoTen, String soDienThoai) {
+    public KhachHang(String idKhachHang) {
         this.idKhachHang = idKhachHang;
-        this.hoTen = hoTen;
-        this.soDienThoai = soDienThoai;
     }
 
     public String getIdKhachHang() {
@@ -21,115 +18,46 @@ class KhachHang extends ConNguoi {
         this.idKhachHang = idKhachHang;
     }
 
-    public String getHoTen() {
-        return hoTen;
-    }
-
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
-    }
-
-    public String getSoDienThoai() {
-        return soDienThoai;
-    }
-
-    public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
-    }
-
     public void nhapThongTin() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap ID khach hang: ");
+        System.out.print("Nhập ID khách hàng: ");
         idKhachHang = sc.nextLine();
-        System.out.print("Nhap ho ten: ");
-        hoTen = sc.nextLine();
-        System.out.print("Nhap so dien thoai: ");
-        soDienThoai = sc.nextLine();
     }
 
     public void hienThiThongTin() {
-        System.out.println("ID: " + idKhachHang);
-        System.out.println("Ho ten: " + hoTen);
-        System.out.println("So dien thoai: " + soDienThoai);
-    }
-}
-
-class KhachHangThuong extends KhachHang {
-    private int soLanMuaHang;
-    private double tongChiTieu;
-
-    public KhachHangThuong() {}
-
-
-    public KhachHangThuong(String idKhachHang, String hoTen, String soDienThoai,
-                           int soLanMuaHang, double tongChiTieu) {
-        super(idKhachHang, hoTen, soDienThoai);
-        this.soLanMuaHang = soLanMuaHang;
-        this.tongChiTieu = tongChiTieu;
-    }
-
-    public int getSoLanMuaHang() {
-        return soLanMuaHang;
-    }
-
-    public void setSoLanMuaHang(int soLanMuaHang) {
-        this.soLanMuaHang = soLanMuaHang;
-    }
-
-    public double getTongChiTieu() {
-        return tongChiTieu;
-    }
-
-    public void setTongChiTieu(double tongChiTieu) {
-        this.tongChiTieu = tongChiTieu;
-    }
-
-    @Override
-    public void nhapThongTin() {
-        super.nhapThongTin();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap so lan mua hang: ");
-        soLanMuaHang = sc.nextInt();
-        System.out.print("Nhap tong chi tieu (VND): ");
-        tongChiTieu = sc.nextDouble();
-    }
-
-    @Override
-    public void hienThiThongTin() {
-        System.out.println("=== Khach Hang Thuong ===");
-        super.hienThiThongTin();
-        System.out.println("So lan mua hang: " + soLanMuaHang);
-        System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
+        System.out.println("ID khách hàng: " + idKhachHang);
     }
 }
 
 class KhachHangVIP extends KhachHang {
-    private double tongChiTieu;
-    private double diemTichLuy;
+    private double mucGiamGia;
+    private int diemTichLuy;
 
-    public KhachHangVIP() {}
+    public KhachHangVIP() {
+        super();
+        this.mucGiamGia = 0.0;
+        this.diemTichLuy = 0;
+    }
 
-    public KhachHangVIP(String idKhachHang, String hoTen, String soDienThoai,
-                        double tongChiTieu, double diemTichLuy) {
-        super(idKhachHang, hoTen, soDienThoai);
-        this.tongChiTieu = tongChiTieu;
+    public KhachHangVIP(String id, double mucGiamGia, int diemTichLuy) {
+        super(id);
+        this.mucGiamGia = mucGiamGia;
         this.diemTichLuy = diemTichLuy;
     }
 
-
-    public double getTongChiTieu() {
-        return tongChiTieu;
+    public double getMucGiamGia() {
+        return mucGiamGia;
     }
 
-    public void setTongChiTieu(double tongChiTieu) {
-        this.tongChiTieu = tongChiTieu;
+    public void setMucGiamGia(double mucGiamGia) {
+        this.mucGiamGia = mucGiamGia;
     }
 
-    public double getDiemTichLuy() {
+    public int getDiemTichLuy() {
         return diemTichLuy;
     }
 
-    public void setDiemTichLuy(double diemTichLuy) {
+    public void setDiemTichLuy(int diemTichLuy) {
         this.diemTichLuy = diemTichLuy;
     }
 
@@ -137,37 +65,71 @@ class KhachHangVIP extends KhachHang {
     public void nhapThongTin() {
         super.nhapThongTin();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap tong chi tieu (VND): ");
-        tongChiTieu = sc.nextDouble();
-        System.out.print("Nhap diem tich luy: ");
-        diemTichLuy = sc.nextDouble();
+        System.out.print("Nhập mức giảm giá (%): ");
+        mucGiamGia = sc.nextDouble();
+        System.out.print("Nhập điểm tích lũy: ");
+        diemTichLuy = sc.nextInt();
     }
 
     @Override
     public void hienThiThongTin() {
-        System.out.println("=== Khach Hang VIP ===");
         super.hienThiThongTin();
-        System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
-        System.out.println("Diem tich luy: " + diemTichLuy);
+        System.out.println("Mức giảm giá: " + mucGiamGia + "%");
+        System.out.println("Điểm tích lũy: " + diemTichLuy);
+    }
+}
+
+class KhachHangThuong extends KhachHang {
+    private int soLanMua;
+
+    public KhachHangThuong() {
+        super();
+        this.soLanMua = 0;
+    }
+
+    public KhachHangThuong(String id, int soLanMua) {
+        super(id);
+        this.soLanMua = soLanMua;
+    }
+
+    public int getSoLanMua() {
+        return soLanMua;
+    }
+
+    public void setSoLanMua(int soLanMua) {
+        this.soLanMua = soLanMua;
+    }
+
+    @Override
+    public void nhapThongTin() {
+        super.nhapThongTin();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập số lần mua hàng: ");
+        soLanMua = sc.nextInt();
+    }
+
+
+    @Override
+    public void hienThiThongTin() {
+        super.hienThiThongTin();
+        System.out.println("Số lần mua hàng: " + soLanMua);
     }
 }
 
 public class Khachhang {
     public static void main(String[] args) {
-        KhachHangThuong khThuong = new KhachHangThuong();
-        KhachHangVIP khVIP = new KhachHangVIP();
+        System.out.println("=== Nhập thông tin khách hàng VIP ===");
+        KhachHangVIP vip = new KhachHangVIP();
+        vip.nhapThongTin();
 
-        System.out.println("Nhap thong tin khach hang thuong:");
-        khThuong.nhapThongTin();
-        System.out.println("\nNhap thong tin khach hang VIP:");
-        khVIP.nhapThongTin();
+        System.out.println("\n=== Nhập thông tin khách hàng Thường ===");
+        KhachHangThuong thuong = new KhachHangThuong();
+        thuong.nhapThongTin();
 
-        System.out.println("\n=== DANH SACH KHACH HANG ===");
-        khThuong.hienThiThongTin();
-        System.out.println();
-        khVIP.hienThiThongTin();
+        System.out.println("\n=== Thông tin khách hàng VIP ===");
+        vip.hienThiThongTin();
+
+        System.out.println("\n=== Thông tin khách hàng Thường ===");
+        thuong.hienThiThongTin();
     }
 }
-
-
-
