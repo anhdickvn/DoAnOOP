@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-class KhachHang {
-    protected String idKhachHang;
-    protected String hoTen;
-    protected String soDienThoai;
+class KhachHang extends ConNguoi {
+    private  String idKhachHang;
+    private  String hoTen;
+    private  String soDienThoai;
 
     public KhachHang() {}
 
@@ -152,7 +152,7 @@ class KhachHangVIP extends KhachHang {
     }
 }
 
-public class QuanLyHeThong {
+public class Khachhang {
     public static void main(String[] args) {
         KhachHangThuong khThuong = new KhachHangThuong();
         KhachHangVIP khVIP = new KhachHangVIP();
@@ -168,4 +168,6 @@ public class QuanLyHeThong {
         khVIP.hienThiThongTin();
     }
 }
+
+
 
