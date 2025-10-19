@@ -223,15 +223,19 @@ class ThuongNhanVien {
             return;
         }
 
-        soTienThuong = tk.tinhDoanhThu() * 0.2;
+        soTienThuong = tk.tinhDoanhThu() * 0.1;
 
         NhanVien[] ds = tk.getDsNhanVien();
-        NhanVien nvMax = ds[0];
-        for (NhanVien nv : ds) {
-            if (nv.getLuong() > nvMax.getLuong()) {
-                nvMax = nv;
-            }
-        }
+
+NhanVien[] ds = tk.getDsNhanVien();
+
+System.out.println("Danh sach nhan vien co doanh thu tren 1000000:");
+for (NhanVien nv : ds) {
+    if (nv.getDoanhThu() > 1000000) {
+        nv.hienThiThongTin(); 
+    }
+}
+
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ngay thuong: ");
