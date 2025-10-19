@@ -242,11 +242,6 @@ class ThuongNhanVien {
             System.out.println("Nhan vien Phe");
         }
     }
-
-    public void hienThi() {
-        System.out.println("Thông tin thưởng gần nhất:");
-        System.out.println("So Tien Thuong: " + soTienThuong);
-    }
 }
 
 public class AnhHigh {
