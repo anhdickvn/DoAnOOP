@@ -129,7 +129,7 @@ class Sach {
 	}
     public void NhapDSTacGia(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap so luong tac gia: ");
+        System.out.print("Nhap so luong tac gia: ");
         int soLuongTacGia = sc.nextInt();
         sc.nextLine();
         tacGia = new TacGia[soLuongTacGia];
@@ -150,11 +150,12 @@ class Sach {
 
     public void NhapDSTheLoai(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap so luong the loai: ");
+        System.out.print("Nhap so luong the loai: ");
         int soLuongTheLoai = sc.nextInt();
         sc.nextLine();
         theLoai = new TheLoai[soLuongTheLoai];
         for(int i = 0; i < soLuongTheLoai; i++){
+            System.out.println("The loai thu "+(i+1)+": ");
             theLoai[i] = new TheLoai();
             theLoai[i].nhap();
         }
@@ -170,31 +171,35 @@ class Sach {
 
 class KhoSach{
     private Sach[] ds;
-    
+    private int soLuongSachKho;
 
-    public KhoSach(){}
-    public KhoSach(Sach[] ds,int n){
-        this.ds = ds;
+    public int getSoLuongSachKho() {
+        return soLuongSachKho;
     }
 
+    public void setSoLuongSachKho(int soLuongSachKho) {
+        this.soLuongSachKho = soLuongSachKho;
+    }
     public Sach[] getDs() {
         return ds;
     }
-
     public void setDs(Sach[] ds) {
         this.ds = ds;
     }
-
     
+    public KhoSach(){}
+    public KhoSach(Sach[] ds,int soLuongSachKho){
+        this.ds = ds;
+        this.soLuongSachKho = soLuongSachKho;
+    }
 
-   
     public void nhapDS(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap so luong sach trong kho: ");
-        int soLuongSach = sc.nextInt();
-        ds = new Sach[soLuongSach];
+        soLuongSachKho = sc.nextInt();
+        ds = new Sach[soLuongSachKho];
         sc.nextLine();
-        for(int i = 0; i < soLuongSach;i++){
+        for(int i = 0; i < soLuongSachKho;i++){
             System.out.println("Sach thu "+(i+1)+": ");
             ds[i] = new Sach();
             ds[i].nhap();
@@ -204,7 +209,7 @@ class KhoSach{
         System.out.println("\n==================== DANH SÁCH SÁCH TRONG KHO ====================");
         System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s %-15s\n","ID Sách", "Tên Sách", "ID Tác Giả", "ID Thể Loại","ID NXB", "Năm XB", "Số Lượng", "Giá Gốc", "Giá Sau Thuế");
         System.out.println("---------------------------------------------------------------------------------------------------------------");
-        for(int i = 0; i < ds.length;i++){
+        for(int i = 0; i < soLuongSachKho;i++){
             ds[i].xuat();
         }
     }
@@ -224,7 +229,7 @@ class KhoSach{
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ID sach can sua: ");
         String idSach = sc.nextLine();
-        for(int i = 0; i < ds.length;i++){
+        for(int i = 0; i < soLuongSachKho;i++){
             if(ds[i].getIdSach().equals(idSach)){
                 System.out.println("Thong tin hien tai: ");
                 ds[i].xuat();
@@ -239,13 +244,13 @@ class KhoSach{
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ma sach can xoa: ");
         String ID = sc.nextLine();
-        int n = ds.length;
-        for(int i = 0; i < ds.length;i++){
+        
+        for(int i = 0; i < soLuongSachKho;i++){
                 if(ds[i].getIdSach().equals(ID)){
-                    for(int j = i;j < ds.length-1;j++){
+                    for(int j = i;j < soLuongSachKho-1;j++){
                         ds[j] = ds[j+1];
                     }
-                    n--;
+                    soLuongSachKho--;
             System.out.println("Da xoa sach co ID: "+ID);
             xuatDS();
             return;
@@ -261,10 +266,13 @@ class KhoSach{
 }    
 public class abc1 {
     public static void main(String[] args) {
-        KhoSach a = new KhoSach();
-        a.nhapDS();
-        a.xuatDS();
+       // KhoSach a = new KhoSach();
+        //a.nhapDS();
+       // a.xuatDS();
+        Sach b = new Sach();
+        //b.NhapDSTacGia();
+        //b.xuatDSTacGia();
+        b.NhapDSTheLoai();
+        b.XuatDSTheLoai();
     }
-    
-    
 }
