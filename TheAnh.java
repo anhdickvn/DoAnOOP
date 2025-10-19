@@ -1,3 +1,6 @@
+package DoAn;
+import java.util.*;
+
 class Sach {
 	private String idSach;
 	private String idTacGia;
@@ -159,8 +162,8 @@ class Sach {
     public void XuatDSTheLoai(){
         System.out.printf("%-15s %-25s\n", "ID Thể Loại", "Tên Thể Loại");
         System.out.println("----------------------------------------------");
-        for(int i = 0; i< theLoai.length.i++){
-
+        for(int i = 0; i < theLoai.length; i++){    
+            theLoai[i].xuat();
         }
     }
 }   
