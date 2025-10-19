@@ -227,8 +227,6 @@ class ThuongNhanVien {
 
         NhanVien[] ds = tk.getDsNhanVien();
 
-NhanVien[] ds = tk.getDsNhanVien();
-
 System.out.println("Danh sach nhan vien co doanh thu tren 1000000:");
 for (NhanVien nv : ds) {
     if (nv.getDoanhThu() > 1000000) {
