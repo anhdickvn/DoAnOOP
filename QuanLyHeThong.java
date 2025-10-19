@@ -17,20 +17,40 @@ abstract class ConNguoi {
         this.soDienThoai = soDienThoai;
     }
 
-    public String getHoTen() { return hoTen; }
-    public void setHoTen(String hoTen) { this.hoTen = hoTen; }
+    public String getHoTen() {
+        return hoTen;
+    }
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
 
-    public String getMaDinhDanh() { return maDinhDanh; }
-    public void setMaDinhDanh(String maDinhDanh) { this.maDinhDanh = maDinhDanh; }
+    public String getMaDinhDanh() {
+        return maDinhDanh;
+    }
+    public void setMaDinhDanh(String maDinhDanh) {
+        this.maDinhDanh = maDinhDanh;
+    }
 
-    public String getNgaySinh() { return ngaySinh; }
-    public void setNgaySinh(String ngaySinh) { this.ngaySinh = ngaySinh; }
+    public String getNgaySinh() {
+        return ngaySinh;
+    }
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
 
-    public String getDiaChi() { return diaChi; }
-    public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
+    public String getDiaChi() {
+        return diaChi;
+    }
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
 
-    public String getSoDienThoai() { return soDienThoai; }
-    public void setSoDienThoai(String soDienThoai) { this.soDienThoai = soDienThoai; }
+    public String getSoDienThoai() {
+        return soDienThoai;
+    }
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
+    }
 
     public void nhapThongTin() {
         Scanner sc = new Scanner(System.in);
@@ -70,14 +90,26 @@ class QuanLy extends ConNguoi {
         this.khuLamViec = khuLamViec;
     }
 
-    public String getIdQuanLy() { return idQuanLy; }
-    public void setIdQuanLy(String idQuanLy) { this.idQuanLy = idQuanLy; }
+    public String getIdQuanLy() {
+        return idQuanLy;
+    }
+    public void setIdQuanLy(String idQuanLy) {
+        this.idQuanLy = idQuanLy;
+    }
 
-    public double getLuong() { return luong; }
-    public void setLuong(double luong) { this.luong = luong; }
+    public double getLuong() {
+        return luong;
+    }
+    public void setLuong(double luong) {
+        this.luong = luong;
+    }
 
-    public String getKhuLamViec() { return khuLamViec; }
-    public void setKhuLamViec(String khuLamViec) { this.khuLamViec = khuLamViec; }
+    public String getKhuLamViec() {
+        return khuLamViec;
+    }
+    public void setKhuLamViec(String khuLamViec) {
+        this.khuLamViec = khuLamViec;
+    }
 
     @Override
     public void nhapThongTin() {
@@ -123,22 +155,46 @@ class NhanVien extends ConNguoi {
         this.soLuongHoaDon = soLuongHoaDon;
     }
 
-    public double getDoanhThu() { return doanhThu; }
-    public void setDoanhThu(double doanhThu) { this.doanhThu = doanhThu; }
-    public int getSoLuongHoaDon() { return soLuongHoaDon; }
-    public void setSoLuongHoaDon(int soLuongHoaDon) { this.soLuongHoaDon = soLuongHoaDon; }
+    public double getDoanhThu() {
+        return doanhThu;
+    }
+    public void setDoanhThu(double doanhThu) {
+        this.doanhThu = doanhThu;
+    }
+    public int getSoLuongHoaDon() {
+        return soLuongHoaDon;
+    }
+    public void setSoLuongHoaDon(int soLuongHoaDon) {
+        this.soLuongHoaDon = soLuongHoaDon;
+    }
 
-    public String getIdNhanVien() { return idNhanVien; }
-    public void setIdNhanVien(String idNhanVien) { this.idNhanVien = idNhanVien; }
+    public String getIdNhanVien() {
+        return idNhanVien;
+    }
+    public void setIdNhanVien(String idNhanVien) {
+        this.idNhanVien = idNhanVien; 
+    }
 
-    public double getLuong() { return luong; }
-    public void setLuong(double luong) { this.luong = luong; }
+    public double getLuong() {
+        return luong; 
+    }
+    public void setLuong(double luong) {
+        this.luong = luong;
+    }
 
-    public String getChucVu() { return chucVu; }
-    public void setChucVu(String chucVu) { this.chucVu = chucVu; }
+    public String getChucVu() {
+        return chucVu; 
+    }
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu; 
+    }
 
-    public String getCa() { return ca; }
-    public void setCa(String ca) { this.ca = ca; }
+    public String getCa() {
+        return ca;
+    }
+    public void setCa(String ca) {
+        this.ca = ca; 
+    }
 
     @Override
     public void nhapThongTin() {
@@ -182,8 +238,12 @@ class ThongKeNhanVien {
         this.dsNhanVien = dsNhanVien;
     }
 
-    public NhanVien[] getDsNhanVien() { return dsNhanVien; }
-    public void setDsNhanVien(NhanVien[] dsNhanVien) { this.dsNhanVien = dsNhanVien; }
+    public NhanVien[] getDsNhanVien() {
+        return dsNhanVien; 
+    }
+    public void setDsNhanVien(NhanVien[] dsNhanVien) {
+        this.dsNhanVien = dsNhanVien; 
+    }
 
     public void nhapThongTin() {
         Scanner sc = new Scanner(System.in);
@@ -210,12 +270,16 @@ class ThuongNhanVien {
 
     public ThuongNhanVien() {}
 
-    public double getSoTienThuong() { return soTienThuong; }
-    public void setSoTienThuong(double soTienThuong) { this.soTienThuong = soTienThuong; }
+    public double getSoTienThuong() {
+        return soTienThuong; 
+    }
+    public void setSoTienThuong(double soTienThuong) {
+        this.soTienThuong = soTienThuong; 
+    }
 
     public void tinhThuong(ThongKeNhanVien tk) {
         if (tk == null || tk.getDsNhanVien() == null || tk.getDsNhanVien().length == 0) {
-            System.out.println("Chưa có dữ liệu nhân viên!");
+            System.out.println("Chua co du lieu nhan vien!");
             return;
         }
 
