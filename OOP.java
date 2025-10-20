@@ -1,5 +1,3 @@
-package OOP;
-
 import java.util.Scanner;
 
 class TacGia {
@@ -516,7 +514,7 @@ class HoaDon {
 			}
 
 			if (sachChon == null) {
-				System.out.println("Không tìm thấy sách có mã " + idSach + " vui lòng nhập lại");
+				System.out.println("Không tìm thấy sách có mã " + idSach);
 				i--;
 				continue;
 			}
