@@ -1,3 +1,5 @@
+package OOP;
+
 import java.util.Scanner;
 
 class TacGia {
@@ -368,10 +370,10 @@ class KhoSach {
 	public void nhapDS() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap so luong sach trong kho: ");
-		int soLuongSach = sc.nextInt();
-		ds = new Sach[soLuongSach];
+		soLuongSachKho = sc.nextInt();
+		ds = new Sach[soLuongSachKho];
 		sc.nextLine();
-		for (int i = 0; i < soLuongSach; i++) {
+		for (int i = 0; i < soLuongSachKho; i++) {
 			System.out.println("Sach thu " + (i + 1) + ": ");
 			ds[i] = new Sach();
 			ds[i].nhap();
@@ -380,8 +382,8 @@ class KhoSach {
 
 	public void xuatDS() {
 		System.out.println("\n==================== DANH SÁCH SÁCH TRONG KHO ====================");
-		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s \n", "ID Sách", "Tên Sách",
-				"ID Tác Giả", "ID Thể Loại", "ID NXB", "Năm XB", "Số Lượng", "Giá Gốc");
+		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s %-15s\n", "ID Sách", "Tên Sách",
+				"ID Tác Giả", "ID Thể Loại", "ID NXB", "Năm XB", "Số Lượng", "Giá Gốc", "Giá Sau Thuế");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------------------");
 		for (int i = 0; i < ds.length; i++) {
@@ -492,7 +494,8 @@ class HoaDon {
 		idCTKM = sc.nextLine();
 
 		System.out.print("Khách mua bao nhiêu loại sách? ");
-		int n = Integer.parseInt(sc.nextLine());
+		int n = sc.nextInt();
+		sc.nextLine();
 
 		dsSach = new Sach[n];
 		dsSoLuong = new int[n];
@@ -514,7 +517,7 @@ class HoaDon {
 			}
 
 			if (sachChon == null) {
-				System.out.println("Không tìm thấy sách có mã " + idSach);
+				System.out.println("Không tìm thấy sách có mã " + idSach + " vui lòng nhập ID sách khác");
 				i--;
 				continue;
 			}
@@ -573,4 +576,3 @@ public class OOP {
 		sc.close();
 	}
 }
-
