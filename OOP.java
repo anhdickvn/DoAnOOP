@@ -380,8 +380,8 @@ class KhoSach {
 
 	public void xuatDS() {
 		System.out.println("\n==================== DANH SÁCH SÁCH TRONG KHO ====================");
-		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s %-15s\n", "ID Sách", "Tên Sách",
-				"ID Tác Giả", "ID Thể Loại", "ID NXB", "Năm XB", "Số Lượng", "Giá Gốc", "Giá Sau Thuế");
+		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s \n", "ID Sách", "Tên Sách",
+				"ID Tác Giả", "ID Thể Loại", "ID NXB", "Năm XB", "Số Lượng", "Giá Gốc");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------------------");
 		for (int i = 0; i < ds.length; i++) {
@@ -573,3 +573,4 @@ public class OOP {
 		sc.close();
 	}
 }
+
