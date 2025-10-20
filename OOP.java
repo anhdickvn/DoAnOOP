@@ -1,288 +1,577 @@
-import java.util.*;
+package OOP;
 
-abstract class ConNguoi {
-    private String hoTen;
-    private String maDinhDanh;
-    private String ngaySinh;
-    private String diaChi;
-    private String soDienThoai;
+import java.util.Scanner;
 
-    public void nhapThongTin(Scanner sc) {
-        System.out.print("Nhap ho va ten: ");
-        hoTen = sc.nextLine();
-        System.out.print("Nhap Ma Dinh Danh: ");
-        maDinhDanh = sc.nextLine();
-        System.out.print("Nhap ngay sinh: ");
-        ngaySinh = sc.nextLine();
-        System.out.print("Nhap dia chi: ");
-        diaChi = sc.nextLine();
-        System.out.print("Nhap so dien thoai: ");
-        soDienThoai = sc.nextLine();
-    }
+class TacGia {
+	private String idTacGia;
+	private String tenTacGia;
+	private String ngaySinh;
 
-    public void hienThiThongTin() {
-        System.out.println("Ho va Ten: " + hoTen);
-        System.out.println("Ma Dinh Danh: " + maDinhDanh);
-        System.out.println("Ngay Sinh: " + ngaySinh);
-        System.out.println("Dia Chi: " + diaChi);
-        System.out.println("So Dien Thoai: " + soDienThoai);
-    }
+	public String getIdTacGia() {
+		return this.idTacGia;
+	}
+
+	public void setIdTacGia(String idTacGia) {
+		this.idTacGia = idTacGia;
+	}
+
+	public String getTenTacGia() {
+		return this.tenTacGia;
+	}
+
+	public void setTenTacGia(String tenTacGia) {
+		this.tenTacGia = tenTacGia;
+	}
+
+	public String getNgaySinh() {
+		return this.ngaySinh;
+	}
+
+	public void setNgaySinh(String ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+	public TacGia() {
+	}
+
+	public TacGia(String idTacGia, String tenTacGia, String ngaySinh) {
+		this.idTacGia = idTacGia;
+		this.tenTacGia = tenTacGia;
+		this.ngaySinh = ngaySinh;
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("ID tac gia: ");
+		idTacGia = sc.nextLine();
+		System.out.print("Ten tac gia: ");
+		tenTacGia = sc.nextLine();
+		System.out.println("Ngay sinh: ");
+		ngaySinh = sc.nextLine();
+	}
+
+	public void xuat() {
+		System.out.printf("%-15s %-25s %-15s %-20s\n", "ID Tác Giả", "Tên Tác Giả", "Ngày Sinh");
+		System.out.println("--------------------------------------------------------------------------");
+		System.out.printf("%-15s %-25s %-15s %-20s\n", idTacGia, tenTacGia, ngaySinh);
+	}
 }
 
-class QuanLy extends ConNguoi {
-    private String idQuanLy;
-    private double luong;
-    private String khuLamViec;
+class TheLoai {
+	private String idTheLoai;
+	private String tenTheLoai;
 
-    @Override
-    public void nhapThongTin(Scanner sc) {
-        super.nhapThongTin(sc);
-        System.out.print("Nhap ID quan ly: ");
-        idQuanLy = sc.nextLine();
-        System.out.print("Nhap luong: ");
-        luong = sc.nextDouble(); sc.nextLine();
-        System.out.print("Nhap khu lam viec: ");
-        khuLamViec = sc.nextLine();
-    }
+	public String getIdTheLoai() {
+		return this.idTheLoai;
+	}
 
-    @Override
-    public void hienThiThongTin() {
-        System.out.println("\n=== Thong tin Quan Ly ===");
-        super.hienThiThongTin();
-        System.out.println("ID Quan Ly: " + idQuanLy);
-        System.out.println("Luong: " + luong);
-        System.out.println("Khu lam viec: " + khuLamViec);
-    }
+	public void setIdTheLoai(String idTheLoai) {
+		this.idTheLoai = idTheLoai;
+	}
+
+	public String getTenTheLoai() {
+		return this.tenTheLoai;
+	}
+
+	public void setTenTheLoai(String tenTheLoai) {
+		this.tenTheLoai = tenTheLoai;
+	}
+
+	public TheLoai() {
+	}
+
+	public TheLoai(String idTheLoai, String tenTheLoai) {
+		this.idTheLoai = idTheLoai;
+		this.tenTheLoai = tenTheLoai;
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("ID thể loại: ");
+		idTheLoai = sc.nextLine();
+		System.out.print("Tên thể loại: ");
+		tenTheLoai = sc.nextLine();
+	}
+
+	public void xuat() {
+		System.out.printf("%-15s %-25s\n", "ID Thể Loại", "Tên Thể Loại");
+		System.out.println("----------------------------------------------");
+		System.out.printf("%-15s %-25s\n", idTheLoai, tenTheLoai);
+	}
 }
 
-class NhanVien extends ConNguoi {
-    private String idNhanVien;
-    private double luong;
-    private String chucVu;
-    private String ca;
+class NhaXuatBan {
+	private String idNhaXuatBan;
+	private String tenNhaXuatBan;
+	private String diaChi;
+	private String soDienThoai;
 
-    @Override
-    public void nhapThongTin(Scanner sc) {
-        super.nhapThongTin(sc);
-        System.out.print("Nhap ID Nhan Vien: ");
-        idNhanVien = sc.nextLine();
-        System.out.print("Nhap luong: ");
-        luong = sc.nextDouble(); sc.nextLine();
-        System.out.print("Nhap chuc vu: ");
-        chucVu = sc.nextLine();
-        System.out.print("Nhap ca lam viec: ");
-        ca = sc.nextLine();
-    }
+	public String getIdNhaXuatBan() {
+		return this.idNhaXuatBan;
+	}
 
-    @Override
-    public void hienThiThongTin() {
-        System.out.println("\n=== Thong tin Nhan Vien ===");
-        super.hienThiThongTin();
-        System.out.println("ID Nhan Vien: " + idNhanVien);
-        System.out.println("Luong: " + luong);
-        System.out.println("Chuc vu: " + chucVu);
-        System.out.println("Ca lam viec: " + ca);
-    }
+	public void setIdNhaXuatBan(String idNhaXuatBan) {
+		this.idNhaXuatBan = idNhaXuatBan;
+	}
+
+	public String getTenNhaXuatBan() {
+		return this.tenNhaXuatBan;
+	}
+
+	public void setTenNhaXuatBan(String tenNhaXuatBan) {
+		this.tenNhaXuatBan = tenNhaXuatBan;
+	}
+
+	public String getDiaChi() {
+		return this.diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+	public String getSoDienThoai() {
+		return this.soDienThoai;
+	}
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+	public NhaXuatBan() {
+	}
+
+	public NhaXuatBan(String idNhaXuatBan, String tenNhaXuatBan, String diaChi, String soDienThoai) {
+		this.idNhaXuatBan = idNhaXuatBan;
+		this.tenNhaXuatBan = tenNhaXuatBan;
+		this.diaChi = diaChi;
+		this.soDienThoai = soDienThoai;
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("ID nhà xuất bản: ");
+		idNhaXuatBan = sc.nextLine();
+		System.out.print("Tên nhà xuất bản: ");
+		tenNhaXuatBan = sc.nextLine();
+		System.out.print("Địa chỉ: ");
+		diaChi = sc.nextLine();
+		System.out.print("Số điện thoại: ");
+		soDienThoai = sc.nextLine();
+	}
+
+	public void xuat() {
+		System.out.printf("%-15s %-25s %-30s %-15s\n", "ID NXB", "Tên Nhà Xuất Bản", "Địa Chỉ", "SĐT");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------");
+		System.out.printf("%-15s %-25s %-30s %-15s\n", idNhaXuatBan, tenNhaXuatBan, diaChi, soDienThoai);
+	}
 }
 
-class ThongKeNhanVien {
-    private String idNhanVien;
-    private int soLuongHoaDon;
-    private double tongDoanhThu;
+class Sach {
+	private String idSach;
+	private String idTacGia;
+	private String idTheLoai;
+	private String idNhaXuatBan;
+	private TacGia[] tacGia;
+	private TheLoai[] theLoai;
+	private double gia;
+	private String tenSach;
+	private int namXuatBan;
+	private int soLuong;
+	private static double thueVAT = 0.1;
 
-    public void nhapThongTin(Scanner sc) {
-        System.out.print("Nhap ID nhan vien: ");
-        idNhanVien = sc.nextLine();
-        System.out.print("Nhap so luong hoa don: ");
-        soLuongHoaDon = sc.nextInt();
-        System.out.print("Nhap tong doanh thu: ");
-        tongDoanhThu = sc.nextDouble();
-        sc.nextLine();
-    }
+	public TacGia[] getTacGia() {
+		return tacGia;
+	}
 
-    public void hienThiThongKe() {
-        System.out.println("ID: " + idNhanVien + " | Hoa don: " + soLuongHoaDon + " | Doanh thu: " + tongDoanhThu);
-    }
+	public void setTacGia(TacGia[] tacGia) {
+		this.tacGia = tacGia;
+	}
 
-    public String getIdNhanVien() { return idNhanVien; }
-    public double getTongDoanhThu() { return tongDoanhThu; }
+	public TheLoai[] getTheLoai() {
+		return theLoai;
+	}
+
+	public void setTheLoai(TheLoai[] theLoai) {
+		this.theLoai = theLoai;
+	}
+
+	public String getIdSach() {
+		return idSach;
+	}
+
+	public void setIdSach(String idSach) {
+		this.idSach = idSach;
+	}
+
+	public String getTenSach() {
+		return tenSach;
+	}
+
+	public void setTenSach(String tenSach) {
+		this.tenSach = tenSach;
+	}
+
+	public double getGia() {
+		return gia;
+	}
+
+	public void setGia(double gia) {
+		this.gia = gia;
+	}
+
+	public int getNamXuatBan() {
+		return namXuatBan;
+	}
+
+	public void setNamXuatBan(int namXuatBan) {
+		this.namXuatBan = namXuatBan;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public static double getThueVAT() {
+		return thueVAT;
+	}
+
+	public static void setThueVAT(double thueVAT) {
+		Sach.thueVAT = thueVAT;
+	}
+
+	public Sach() {
+	}
+
+	public Sach(String idSach, String tenSach, String idTacGia, String idTheLoai, String idNhaXuatBan, double gia,
+			int namXuatBan, int soLuong) {
+		this.idSach = idSach;
+		this.tenSach = tenSach;
+		this.idTacGia = idTacGia;
+		this.idTheLoai = idTheLoai;
+		this.idNhaXuatBan = idNhaXuatBan;
+		this.gia = gia;
+		this.namXuatBan = namXuatBan;
+		this.soLuong = soLuong;
+	}
+
+	public void nhap() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhập ID sách: ");
+		idSach = sc.nextLine();
+
+		System.out.print("Nhập tên sách: ");
+		tenSach = sc.nextLine();
+
+		System.out.print("Nhập ID tác giả: ");
+		idTacGia = sc.nextLine();
+
+		System.out.print("Nhập ID thể loại: ");
+		idTheLoai = sc.nextLine();
+
+		System.out.print("Nhập ID nhà xuất bản: ");
+		idNhaXuatBan = sc.nextLine();
+
+		System.out.print("Nhập năm xuất bản: ");
+		namXuatBan = sc.nextInt();
+
+		System.out.print("Nhập giá sách: ");
+		gia = sc.nextDouble();
+
+		System.out.println("Nhập số lượng: ");
+		soLuong = sc.nextInt();
+	}
+
+	public void xuat() {
+		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10d %-10d %-15.2f %-15.2f\n", idSach, tenSach, idTacGia,
+				idTheLoai, idNhaXuatBan, namXuatBan, soLuong, gia, tinhTienSauThue());
+	}
+
+	public double tinhTienSauThue() {
+		return gia + gia * thueVAT;
+	}
+
+	public void NhapDSTacGia() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap so luong tac gia: ");
+		int soLuongTacGia = sc.nextInt();
+		sc.nextLine();
+		tacGia = new TacGia[soLuongTacGia];
+
+		for (int i = 0; i < soLuongTacGia; i++) {
+			System.out.println("Tac gia thu " + (i + 1) + ": ");
+			tacGia[i] = new TacGia();
+			tacGia[i].nhap();
+		}
+	}
+
+	public void xuatDSTacGia() {
+		System.out.printf("%-15s %-25s %-15s\n", "ID Tác Giả", "Tên Tác Giả", "Ngày Sinh");
+		System.out.println("---------------------------------------------------------------");
+		for (int i = 0; i < tacGia.length; i++) {
+			tacGia[i].xuat();
+		}
+	}
+
+	public void NhapDSTheLoai() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap so luong the loai: ");
+		int soLuongTheLoai = sc.nextInt();
+		sc.nextLine();
+		theLoai = new TheLoai[soLuongTheLoai];
+		for (int i = 0; i < soLuongTheLoai; i++) {
+			theLoai[i] = new TheLoai();
+			theLoai[i].nhap();
+		}
+	}
+
+	public void XuatDSTheLoai() {
+		System.out.printf("%-15s %-25s\n", "ID Thể Loại", "Tên Thể Loại");
+		System.out.println("----------------------------------------------");
+		for (int i = 0; i < theLoai.length; i++) {
+			theLoai[i].xuat();
+		}
+	}
 }
 
-class ThuongNhanVien {
-    private String idNhanVien;
-    private double soTienThuong;
-    private String ngayThuong;
+class KhoSach {
+	private Sach[] ds;
+	private int soLuongSachKho;
 
-    public void timNhanVienThuong(ThongKeNhanVien[] ds) {
-        if (ds == null || ds.length == 0) {
-            System.out.println("Khong co du lieu thong ke!");
-            return;
-        }
-        ThongKeNhanVien max = ds[0];
-        for (ThongKeNhanVien nv : ds) {
-            if (nv.getTongDoanhThu() > max.getTongDoanhThu()) {
-                max = nv;
-            }
-        }
-        this.idNhanVien = max.getIdNhanVien();
-        this.soTienThuong = max.getTongDoanhThu() * 0.2;
-    }
+	public KhoSach() {
+	}
 
-    public void nhapNgayThuong(Scanner sc) {
-        System.out.print("Nhap ngay thuong (dd/MM/yyyy): ");
-        ngayThuong = sc.nextLine();
-    }
+	public KhoSach(Sach[] ds, int soLuongSachKho) {
+		this.ds = ds;
+		this.soLuongSachKho = soLuongSachKho;
+	}
 
-    public void hienThiThuong() {
-        if (idNhanVien == null) {
-            System.out.println("Chua co nhan vien duoc thuong!");
-            return;
-        }
-        System.out.println("\n=== Nhan vien duoc thuong ===");
-        System.out.println("ID: " + idNhanVien);
-        System.out.println("So tien thuong: " + soTienThuong);
-        System.out.println("Ngay thuong: " + ngayThuong);
-    }
+	public Sach[] getDs() {
+		return ds;
+	}
+
+	public void setDs(Sach[] ds) {
+		this.ds = ds;
+	}
+
+	public int getSoLuongSachKho() {
+		return soLuongSachKho;
+	}
+
+	public void setSoLuongSachKho(int soLuongSachKho) {
+		this.soLuongSachKho = soLuongSachKho;
+	}
+
+	public void nhapDS() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhap so luong sach trong kho: ");
+		int soLuongSach = sc.nextInt();
+		ds = new Sach[soLuongSach];
+		sc.nextLine();
+		for (int i = 0; i < soLuongSach; i++) {
+			System.out.println("Sach thu " + (i + 1) + ": ");
+			ds[i] = new Sach();
+			ds[i].nhap();
+		}
+	}
+
+	public void xuatDS() {
+		System.out.println("\n==================== DANH SÁCH SÁCH TRONG KHO ====================");
+		System.out.printf("%-10s %-25s %-15s %-15s %-15s %-10s %-10s %-15s %-15s\n", "ID Sách", "Tên Sách",
+				"ID Tác Giả", "ID Thể Loại", "ID NXB", "Năm XB", "Số Lượng", "Giá Gốc", "Giá Sau Thuế");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------");
+		for (int i = 0; i < ds.length; i++) {
+			ds[i].xuat();
+		}
+	}
 }
 
-class KhachHang {
-    protected String idKhachHang;
-    protected String hoTen;
-    protected String soDienThoai;
+class HoaDon {
 
-    public void nhapThongTin(Scanner sc) {
-        System.out.print("Nhap ID khach hang: ");
-        idKhachHang = sc.nextLine();
-        System.out.print("Nhap ho ten: ");
-        hoTen = sc.nextLine();
-        System.out.print("Nhap so dien thoai: ");
-        soDienThoai = sc.nextLine();
-    }
+	private String idHoaDon;
+	private String idKhachHang;
+	private String idCTKM;
+	private String ngayInPhieu;
+	private int soLuong;
+	private double tongTien;
+	private Sach[] dsSach;
+	private int[] dsSoLuong;
 
-    public void hienThiThongTin() {
-        System.out.println("ID: " + idKhachHang);
-        System.out.println("Ho ten: " + hoTen);
-        System.out.println("So dien thoai: " + soDienThoai);
-    }
+	public HoaDon() {
+	}
+
+	public HoaDon(String idHoaDon, String idKhachHang, String idCTKM, String ngayInPhieu, int soLuong, double tongTien,
+			Sach[] dsSach, int[] dsSoLuong) {
+		this.idHoaDon = idHoaDon;
+		this.idKhachHang = idKhachHang;
+		this.idCTKM = idCTKM;
+		this.ngayInPhieu = ngayInPhieu;
+		this.soLuong = soLuong;
+		this.tongTien = tongTien;
+		this.dsSach = dsSach;
+		this.dsSoLuong = dsSoLuong;
+	}
+
+	public String getIdHoaDon() {
+		return idHoaDon;
+	}
+
+	public void setIdHoaDon(String idHoaDon) {
+		this.idHoaDon = idHoaDon;
+	}
+
+	public String getIdKhachHang() {
+		return idKhachHang;
+	}
+
+	public void setIdKhachHang(String idKhachHang) {
+		this.idKhachHang = idKhachHang;
+	}
+
+	public String getIdCTKM() {
+		return idCTKM;
+	}
+
+	public void setIdCTKM(String idCTKM) {
+		this.idCTKM = idCTKM;
+	}
+
+	public String getNgayInPhieu() {
+		return ngayInPhieu;
+	}
+
+	public void setNgayInPhieu(String ngayInPhieu) {
+		this.ngayInPhieu = ngayInPhieu;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public double getTongTien() {
+		return tongTien;
+	}
+
+	public void setTongTien(double tongTien) {
+		this.tongTien = tongTien;
+	}
+
+	public Sach[] getDsSach() {
+		return dsSach;
+	}
+
+	public void setDsSach(Sach[] dsSach) {
+		this.dsSach = dsSach;
+	}
+
+	public int[] getDsSoLuong() {
+		return dsSoLuong;
+	}
+
+	public void setDsSoLuong(int[] dsSoLuong) {
+		this.dsSoLuong = dsSoLuong;
+	}
+
+	public void nhapHoaDon(KhoSach kho) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhập mã hóa đơn: ");
+		idHoaDon = sc.nextLine();
+
+		System.out.print("Nhập mã khách hàng: ");
+		idKhachHang = sc.nextLine();
+
+		System.out.print("Nhập mã chương trình khuyến mãi (nếu có): ");
+		idCTKM = sc.nextLine();
+
+		System.out.print("Khách mua bao nhiêu loại sách? ");
+		int n = Integer.parseInt(sc.nextLine());
+
+		dsSach = new Sach[n];
+		dsSoLuong = new int[n];
+		tongTien = 0;
+		soLuong = 0;
+		Sach[] dsKho = kho.getDs();
+		for (int i = 0; i < n; i++) {
+			System.out.println("Nhập sách thứ " + (i + 1));
+			System.out.print("Nhập ID sách: ");
+			String idSach = sc.nextLine();
+
+			Sach sachChon = null;
+
+			for (int j = 0; j < kho.getSoLuongSachKho(); j++) {
+				if (dsKho[j].getIdSach().equalsIgnoreCase(idSach)) {
+					sachChon = dsKho[j];
+					break;
+				}
+			}
+
+			if (sachChon == null) {
+				System.out.println("Không tìm thấy sách có mã " + idSach + " vui lòng nhập lại");
+				i--;
+				continue;
+			}
+
+			System.out.print("Nhập số lượng muốn mua: ");
+			int soLuongMua = sc.nextInt();
+			sc.nextLine();
+
+			if (soLuongMua > sachChon.getSoLuong()) {
+				System.out.println("Sách chỉ còn " + sachChon.getSoLuong() + " cuốn trong kho!");
+				i--;
+				continue;
+			}
+
+			dsSach[i] = sachChon;
+			dsSoLuong[i] = soLuongMua;
+
+			sachChon.setSoLuong(sachChon.getSoLuong() - soLuongMua);
+
+			soLuong += soLuongMua;
+			tongTien += sachChon.getGia() * soLuongMua;
+
+			System.out.println("Đã thêm " + soLuongMua + " quyển \"" + sachChon.getTenSach() + "\"");
+			ngayInPhieu = java.time.LocalDate.now().toString();
+		}
+	}
+
+	public void xuatHoaDon() {
+		System.out.println("\n=== THÔNG TIN HÓA ĐƠN ===");
+		System.out.println("Mã hóa đơn: " + idHoaDon);
+		System.out.println("Mã khách hàng: " + idKhachHang);
+		System.out.println("Mã CTKM: " + idCTKM);
+		System.out.println("Ngày in phiếu: " + ngayInPhieu);
+		System.out.println("Tổng số lượng: " + soLuong);
+		System.out.println("Tổng tiền: " + tongTien);
+	}
 }
 
-class KhachHangThuong extends KhachHang {
-    private int soLanMuaHang;
-    private double tongChiTieu;
+public class OOP {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		KhoSach kho = new KhoSach();
+		HoaDon hoaDon = new HoaDon();
 
-    @Override
-    public void nhapThongTin(Scanner sc) {
-        super.nhapThongTin(sc);
-        System.out.print("Nhap so lan mua hang: ");
-        soLanMuaHang = sc.nextInt();
-        System.out.print("Nhap tong chi tieu (VND): ");
-        tongChiTieu = sc.nextDouble();
-        sc.nextLine();
-    }
+		System.out.println("\n=== NHẬP KHO SÁCH ===");
+		kho.nhapDS();
 
-    @Override
-    public void hienThiThongTin() {
-        System.out.println("\n=== Khach Hang Thuong ===");
-        super.hienThiThongTin();
-        System.out.println("So lan mua hang: " + soLanMuaHang);
-        System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
-    }
-}
+		System.out.println("\n=== DANH SÁCH SÁCH TRONG KHO ===");
+		kho.xuatDS();
 
-class KhachHangVIP extends KhachHang {
-    private double tongChiTieu;
-    private double diemTichLuy;
-    private String hangThe;
+		System.out.println("\n=== NHẬP HÓA ĐƠN MỚI ===");
+		hoaDon.nhapHoaDon(kho);
 
-    @Override
-    public void nhapThongTin(Scanner sc) {
-        super.nhapThongTin(sc);
-        System.out.print("Nhap tong chi tieu (VND): ");
-        tongChiTieu = sc.nextDouble();
-        System.out.print("Nhap diem tich luy: ");
-        diemTichLuy = sc.nextDouble();
-        sc.nextLine();
-        System.out.print("Nhap hang the (Vang/Bac/Kim Cuong): ");
-        hangThe = sc.nextLine();
-    }
-
-    @Override
-    public void hienThiThongTin() {
-        System.out.println("\n=== Khach Hang VIP ===");
-        super.hienThiThongTin();
-        System.out.println("Tong chi tieu: " + tongChiTieu + " VND");
-        System.out.println("Diem tich luy: " + diemTichLuy);
-        System.out.println("Hang the: " + hangThe);
-    }
-}
-
-public class Oop {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        ThongKeNhanVien[] dsThongKe = null;
-        ThuongNhanVien thuong = new ThuongNhanVien();
-        NhanVien nv = null;
-        QuanLy ql = null;
-        KhachHangThuong khThuong = null;
-        KhachHangVIP khVIP = null;
-
-        int chon;
-        do {
-            System.out.println("\n===== MENU CHINH =====");
-            System.out.println("1. Nhap & hien thi nhan vien");
-            System.out.println("2. Nhap & hien thi quan ly");
-            System.out.println("3. Nhap danh sach thong ke nhan vien");
-            System.out.println("4. Tim nhan vien duoc thuong");
-            System.out.println("5. Nhap & hien thi khach hang thuong");
-            System.out.println("6. Nhap & hien thi khach hang VIP");
-            System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            chon = sc.nextInt();
-            sc.nextLine();
-
-            switch (chon) {
-                case 1 -> {
-                    nv = new NhanVien();
-                    nv.nhapThongTin(sc);
-                    nv.hienThiThongTin();
-                }
-                case 2 -> {
-                    ql = new QuanLy();
-                    ql.nhapThongTin(sc);
-                    ql.hienThiThongTin();
-                }
-                case 3 -> {
-                    System.out.print("Nhap so luong thong ke: ");
-                    int n = sc.nextInt(); sc.nextLine();
-                    dsThongKe = new ThongKeNhanVien[n];
-                    for (int i = 0; i < n; i++) {
-                        System.out.println("\nThong ke thu " + (i + 1) + ":");
-                        dsThongKe[i] = new ThongKeNhanVien();
-                        dsThongKe[i].nhapThongTin(sc);
-                    }
-                    for (ThongKeNhanVien tk : dsThongKe) tk.hienThiThongKe();
-                }
-                case 4 -> {
-                    if (dsThongKe == null) System.out.println("Chua co du lieu thong ke!");
-                    else {
-                        thuong.timNhanVienThuong(dsThongKe);
-                        thuong.nhapNgayThuong(sc);
-                        thuong.hienThiThuong();
-                    }
-                }
-                case 5 -> {
-                    khThuong = new KhachHangThuong();
-                    khThuong.nhapThongTin(sc);
-                    khThuong.hienThiThongTin();
-                }
-                case 6 -> {
-                    khVIP = new KhachHangVIP();
-                    khVIP.nhapThongTin(sc);
-                    khVIP.hienThiThongTin();
-                }
-                case 0 -> System.out.println("Tam biet!");
-                default -> System.out.println("Lua chon khong hop le!");
-            }
-        } while (chon != 0);
-    }
+		System.out.println("\n=== THÔNG TIN HÓA ĐƠN ===");
+		hoaDon.xuatHoaDon();
+		sc.close();
+	}
 }
